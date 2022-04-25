@@ -1,0 +1,10 @@
+node_modules
+coverage
+test
+dist
+dist-ssr
+
+**/*.ts
+**/*.tsx
+**/*.jsx
+**/*.js
