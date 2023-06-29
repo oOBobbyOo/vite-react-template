@@ -31,7 +31,7 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint:fix": "eslint './src/**/*.{js,jsx,ts,tsx}' --fix",
-    "lint:style": "stylelint --fix \"src/**/*.less\" --custom-syntax postcss-less",
+    "lint:style": "stylelint --fix \"src/**/*.{css,less}\" --custom-syntax postcss-less",
     "stylelint-check": "stylelint-config-prettier-check",
     "prepare": "husky install"
   },
@@ -68,13 +68,19 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard": "^25.0.0",
+    "tailwindcss": "^3.3.2",
     "typescript": "^4.6.3",
     "vite": "^2.9.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "src/**/*.less": "stylelint --fix --custom-syntax postcss-less",
     "src/**/*.{js,jsx,ts.tsx}": [
-      "prettier --config .prettierrc --write",
+      "prettier --ignore-path ./.prettierignore --config .prettierrc --write",
       "pnpm lint:fix"
     ]
   }
